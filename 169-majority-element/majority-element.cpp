@@ -23,8 +23,7 @@ public:
         }
         if (count1 > (nums.size() / 2))
             return me;
-        else    
-        return -1;
+        else
+            return -1;
     }
-    
 };
