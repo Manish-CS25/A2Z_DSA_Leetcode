@@ -26,10 +26,9 @@
 //             R++;
 //         }
 //         return max_f;
-        
+
 //     }
 // };
-
 
 class Solution {
 public:
@@ -42,9 +41,11 @@ public:
 
             // If the current window contains more than two types of fruits
             while (mpp.size() > 2) {
-                mpp[fruits[L]]--; // Decrement the frequency of the leftmost fruit
+                mpp[fruits[L]]--; // Decrement the frequency of the leftmost
+                                  // fruit
 
-                // If the leftmost fruit's frequency becomes zero, remove it from the map
+                // If the leftmost fruit's frequency becomes zero, remove it
+                // from the map
                 if (mpp[fruits[L]] == 0) {
                     mpp.erase(fruits[L]);
                 }
@@ -52,11 +53,16 @@ public:
             }
 
             // Update the maximum number of fruits collected
-            count = 0;
-            for (auto it : mpp) {
-                count += it.second;
+            // count = 0;
+            // for (auto it : mpp) {
+            //     count += it.second;
+            // }
+            // max_f = max(max_f, count);
+
+            if (mpp.size() <= 2) {
+
+                max_f = max(R - L + 1, max_f);
             }
-            max_f = max(max_f, count);
 
             R++; // Move the right pointer to the right
         }
@@ -64,5 +70,3 @@ public:
         return max_f;
     }
 };
-
-
