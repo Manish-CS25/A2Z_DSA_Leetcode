@@ -6,11 +6,11 @@ public:
         for (int i = 0; i < nums.size(); i++) {
             pq.push(nums[i]);
         }
-        for (int i = 0; i < k; i++) {
-            kth_max = pq.top();
+        for (int i = 0; i < k-1; i++) {
+            
             pq.pop();
             
         }
-        return kth_max;
+        return pq.top();
     }
 };
