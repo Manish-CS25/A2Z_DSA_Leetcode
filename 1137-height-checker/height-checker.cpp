@@ -18,10 +18,8 @@ public:
         //     }
         // }
 
-        vector<int> arr;
-        for (int i = 0; i < heights.size(); i++) {
-            arr.push_back(heights[i]);
-        }
+        vector<int> arr(heights);
+
 
         sort(arr.begin(), arr.end());
 
