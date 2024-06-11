@@ -19,14 +19,14 @@ public:
             //     break;
             // }
 
-            if(operations[i]=="--X")
-            --X;
-            if(operations[i]=="++X")
-            ++X;
-            if(operations[i]=="X++")
-            X++;
-            if(operations[i]=="X--")
-            X--;                        
+            if (operations[i] == "--X")
+                --X;
+            else if (operations[i] == "++X")
+                ++X;
+            else if (operations[i] == "X++")
+                X++;
+            else if (operations[i] == "X--")
+                X--;
         }
         return X;
     }
