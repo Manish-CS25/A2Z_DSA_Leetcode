@@ -3,7 +3,7 @@ public:
     vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
         vector<int> ans;
         vector<int> ans2;
-        vector<int> ans3;
+        // vector<int> ans3;
 
         int count = 0;
         for (int i = 0; i < arr2.size(); i++) {
