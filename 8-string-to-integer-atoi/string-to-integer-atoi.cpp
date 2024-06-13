@@ -3,8 +3,9 @@
 class Solution {
 public:
     int myAtoi(std::string s) {
-        int i = 0, n = s.size();
-        int sign = 1;
+        int n = s.size();
+        int i = 0;
+        bool sign = true;
         long long ans = 0;
 
         // Skip leading spaces
@@ -12,20 +13,32 @@ public:
             i++;
         }
 
-        // Handle optional sign
-        if (i < n && (s[i] == '+' || s[i] == '-')) {
-            sign = (s[i] == '-') ? -1 : 1;
+        // Check if we have reached the end after removing spaces
+        if (i == n) return 0;
+
+        // Check for the sign
+        if (s[i] == '-') {
+            sign = false;
+            i++;
+        } else if (s[i] == '+') {
             i++;
         }
 
-        // Convert digits to integer
+        // Convert the digits to integer
         while (i < n && s[i] >= '0' && s[i] <= '9') {
             ans = ans * 10 + (s[i] - '0');
-            if (sign == 1 && ans > INT_MAX) return INT_MAX;
-            if (sign == -1 && -ans < INT_MIN) return INT_MIN;
+
+            // Check for overflow and underflow
+            if (ans > INT_MAX) {
+                return sign ? INT_MAX : INT_MIN;
+            }
             i++;
         }
 
-        return static_cast<int>(ans * sign);
+        // Apply the sign
+        ans = sign ? ans : -ans;
+
+        // Return the result as an int
+        return static_cast<int>(ans);
     }
 };
