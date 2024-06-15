@@ -3,6 +3,7 @@ public:
     int findMaximizedCapital(int k, int w, vector<int>& profits,
                              vector<int>& capital) {
         int n = profits.size();
+        
 
         vector<pair<int, int>> cp(n);
 
@@ -12,9 +13,12 @@ public:
 
         sort(cp.begin(), cp.end());
         int i = 0;
+
+        //max heap to maximize profits
         priority_queue<int> maxp;
 
         while (k--) {
+
             while (i < n && cp[i].first <= w) {
                 maxp.push(cp[i].second);
                 i++;
