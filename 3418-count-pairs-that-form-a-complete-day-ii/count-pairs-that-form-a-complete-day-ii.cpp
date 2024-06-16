@@ -6,7 +6,8 @@ public:
         long long cnt = 0;
         int n = hours.size();
 
-        map<int, int> mpp;
+        unordered_map<int, int> mpp;
+        // unordered_map takes O(n) in search time while map takes only O(logn)
 
         for (int i = 0; i < n; i++) {
 
@@ -16,13 +17,13 @@ public:
             long long comp = (24 - rem) % 24;
 
             // if comp is already in map then we find one pair of complete day
-            if(mpp.find(comp)!=mpp.end())
-            // we update our no. of complete day count by frequency of comp in map
-            cnt+=mpp[comp];
+            if (mpp.find(comp) != mpp.end())
+                // we update our no. of complete day count by frequency of comp
+                // in map
+                cnt += mpp[comp];
 
             // else we will increase frquency of rem in map
             mpp[rem]++;
-
         }
 
         return cnt;
