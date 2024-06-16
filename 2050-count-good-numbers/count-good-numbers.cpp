@@ -2,6 +2,7 @@ class Solution {
     long long mod = 1e9 + 7;
 
 public:
+    // IT IS JUST X POWER N FUNCTION
     long long power(long long x, long long n) {
         if (n == 0)
             return 1;
@@ -24,10 +25,18 @@ public:
         // return result; // n1 * n2;
 
         // another Appraoch
+        // no. of even position in n digit no.
         long long even = (n + 1) / 2;
+        // no. of odd position in n digit no.
         long long odd = n / 2;
 
+        // no. of even no. in 0 to 9 is 5 =={0, 2 , 4, 6 ,8}
+
+        // FIRST HALF GIVES NO. OF GOOD NO. OF EVEN POSITIONS
         long long f_half = power(5, even);
+
+        // no. of prime no. in 0 to 9 is 4 ==={2 ,3 , 5 , 7}
+        // sECOND HALF GIVES NO. OF GOOD NO. OF ODD POSITIONS
         long long s_half = power(4, odd);
 
         return (f_half * s_half) % mod;
