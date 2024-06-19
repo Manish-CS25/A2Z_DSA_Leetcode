@@ -25,8 +25,13 @@ public:
         if (n < val) {
             return -1;
         }
-        int min = *min_element(bloomDay.begin(), bloomDay.end());
-        int max = *max_element(bloomDay.begin(), bloomDay.end());
+       int mini = INT_MAX;
+       int maxi = INT_MIN;
+
+       for(int i=0;i<n;i++){
+        mini = min(bloomDay[i], mini);
+        maxi = max(bloomDay[i], maxi);
+       }
 
         // for (int i = min; i <= max; i++) {
         //     if (possible(bloomDay, i, m, k)) {
@@ -38,7 +43,7 @@ public:
 
         // here is the binary approach
 
-        int low = min, high = max;
+        int low = mini, high = maxi;
         while (low <= high) {
             int mid = (low + high) / 2;
             if (possible(bloomDay, mid, m, k)) {
