@@ -4,7 +4,7 @@ public:
 
         int default_satisfied = 0;
 
-        int max_window_sum = INT_MIN;
+        int max_window_sum = 0;
         int n = customers.size();
         //// count satisfied customers initially when store keeper is not grumpy
         ///mean grumpy[i]==0
