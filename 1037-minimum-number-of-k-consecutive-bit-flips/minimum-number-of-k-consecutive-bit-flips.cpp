@@ -26,23 +26,44 @@ public:
         // }
         // return cnt;
 
-        // optimal approach
+        // optimal approach---coder army
 
-        queue<int> q;
-        int flip = 0;
-        for (int i = 0; i < nums.size(); i++) {
-            if (!q.empty() && q.front() < i) {
-                q.pop();
+        // queue<int> q;
+        // int flip = 0;
+        // for (int i = 0; i < nums.size(); i++) {
+        //     if (!q.empty() && q.front() < i) {
+        //         q.pop();
+        //     }
+        //     if (q.size() % 2 == nums[i]) {
+        //         if (i + k - 1 >= nums.size())
+        //             return -1;
+
+        //         q.push(i + k - 1);
+        //         flip++;
+        //     }
+        // }
+
+        // return flip;
+
+        // most optimal approach
+
+        int n = nums.size(), res = 0, flipped = 0;
+        vector<int> isflipped(n, 0);
+
+        for (int i = 0; i < n; i++) {
+            if (i >= k) {
+                flipped ^= isflipped[i - k];
             }
-            if (q.size() % 2 == nums[i]) {
-                if (i + k - 1 >= nums.size())
+            if (flipped == nums[i]) {
+                if (i + k > n)
                     return -1;
 
-                q.push(i + k - 1);
-                flip++;
+                isflipped[i] = 1;
+                flipped ^= 1;
+                res++;
             }
         }
 
-        return flip;
+        return res;
     }
 };
