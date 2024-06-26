@@ -12,6 +12,7 @@
  */
 class Solution {
 public:
+    // inorder traverse tree to make sorted array of nodes
     void inOrderTrav(TreeNode* root, vector<int>& sorted_nodes) {
 
         if (root == NULL) {
@@ -23,6 +24,7 @@ public:
         inOrderTrav(root->right, sorted_nodes);
     }
 
+    // Now we will build BST using these nodes
     TreeNode* buildBST(vector<int>& sorted_nodes, int left, int right) {
         if (left > right)
             return nullptr;
@@ -38,9 +40,7 @@ public:
 
         vector<int> sorted_nodes;
         inOrderTrav(root, sorted_nodes);
-
-        return buildBST(sorted_nodes, 0, sorted_nodes.size()-1);
-
-        
+        // Finally return the balanced BST
+        return buildBST(sorted_nodes, 0, sorted_nodes.size() - 1);
     }
 };
