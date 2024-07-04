@@ -43,7 +43,6 @@
 
 // =============Recursive Solution ===============
 
-
 // class Solution {
 // public:
 //     ListNode* mergeNodes(ListNode* head) {
@@ -60,7 +59,8 @@
 //         }
 //         // assign sum on the first node between nodes having value 0.
 //         head->next->val = sum;
-//         // call and get the answer and connect the answer to next of head->next
+//         // call and get the answer and connect the answer to next of
+//         head->next
 
 //         head->next->next = mergeNodes(ptr);
 //         // return head->next..=> new head
@@ -68,23 +68,24 @@
 //     }
 // };
 
-
-
 // ==============Iterative solution ==========
-class Solution{
+class Solution {
 public:
- ListNode* mergeNodes(ListNode* head) {
-     head=head->next;
-     ListNode* start=head;
-     while(start){
-	    ListNode* end= start;   /* Point to first node of current part for getting sum */
-        int sum=0;
-        while(end->val!=0) sum+= end->val , end=end->next;
-        start->val=sum;   /*assign sum to first node between two 0*/
-        start->next=end->next;   /*make this connect to first node of next part*/
-        start=start->next;    /*go..to..next..part*/
-	 }
-    
-     return head;
- }
+    ListNode* mergeNodes(ListNode* head) {
+        head = head->next;
+        ListNode* start = head;
+        while (start) {
+            ListNode* end =
+                start; /* Point to first node of current part for getting sum */
+            int sum = 0;
+            while (end->val != 0)
+                sum += end->val, end = end->next;
+            start->val = sum; /*assign sum to first node between two 0*/
+            start->next =
+                end->next; /*make this connect to first node of next part*/
+            start = start->next; /*go..to..next..part*/
+        }
+
+        return head;
+    }
 };
