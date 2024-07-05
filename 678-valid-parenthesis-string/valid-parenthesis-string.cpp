@@ -11,6 +11,7 @@ public:
                 min = min - 1;
                 max = max - 1;
             } else {
+                // when * comes , we can do either +1 , -1 or nothing
                 min = min - 1;
                 max = max + 1;
             }
