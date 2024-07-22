@@ -11,8 +11,8 @@ public:
 
         sort(p.begin(), p.end());
         for (int i = n - 1; i >= 0; i--) {
-            cout<<p[i].first;
-            names[n-i-1] = p[i].second;
+            // cout << p[i].first;
+            names[n - i - 1] = p[i].second;
         }
 
         return names;
