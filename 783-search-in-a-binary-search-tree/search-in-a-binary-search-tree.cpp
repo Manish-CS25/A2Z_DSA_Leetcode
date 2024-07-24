@@ -16,7 +16,7 @@ public:
         if (root == NULL) {
             return NULL;
         }
-        TreeNode* ans = new TreeNode();
+        TreeNode* ans;
 
         if (root->val > v) {
             ans = searchBST(root->left, v);
