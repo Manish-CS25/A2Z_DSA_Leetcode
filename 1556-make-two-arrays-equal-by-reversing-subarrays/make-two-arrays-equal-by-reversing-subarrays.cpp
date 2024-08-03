@@ -26,12 +26,19 @@
 //     }
 // };
 
+// class Solution {
+// public:
+//     bool canBeEqual(vector<int>& target, vector<int>& arr) {
+//         return is_permutation(target.begin(), target.end(),arr.begin());
+//     }
+// };
+
+
 class Solution {
 public:
     bool canBeEqual(vector<int>& target, vector<int>& arr) {
-        return is_permutation(target.begin(), target.end(),arr.begin());
+        return unordered_multiset<int>(target.begin(), target.end()) == unordered_multiset<int>(arr.begin(), arr.end());
     }
 };
-
 
 
