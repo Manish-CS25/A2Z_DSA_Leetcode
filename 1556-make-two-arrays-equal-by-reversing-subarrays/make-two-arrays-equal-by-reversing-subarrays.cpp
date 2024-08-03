@@ -11,7 +11,7 @@ public:
         }
 
         for (int j = 0; j < n; j++) {
-            if(mp.find(target[j]) == mp.end())
+            if (mp.find(target[j]) == mp.end())
                 return false;
             mp[target[j]]--;
         }
