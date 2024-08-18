@@ -1,44 +1,39 @@
 class Solution {
 public:
     long long maxPoints(vector<vector<int>>& points) {
-        
-        int n=points.size();
-        int m=points[0].size();
+        int m = points.size();
+        int n = points[0].size();
+        vector<long long> dp(n, 0);
 
-        vector<vector<long long>>dp(n+1,vector<long long>(m+1,-1));
-
-        for(int i=0;i<m;i++){
-            dp[0][i]=points[0][i];
+        // Initialize dp with the first row
+        for (int j = 0; j < n; ++j) {
+            dp[j] = points[0][j];
         }
 
-        for(int i=1;i<n;i++){
+        // Traverse through each row
+        for (int i = 1; i < m; ++i) {
+            vector<long long> leftMax(n), rightMax(n), newDp(n);
 
-            vector<long long>left(m),right(m);
-            
-            left[0]=dp[i-1][0];
-
-            for(int j=1;j<m;j++){
-             left[j]=max(left[j-1]-1,dp[i-1][j]);
+            // Calculate left max
+            leftMax[0] = dp[0];
+            for (int j = 1; j < n; ++j) {
+                leftMax[j] = max(leftMax[j - 1], dp[j] + j);
             }
 
-            right[m-1]=dp[i-1][m-1];
-
-            for(int j=m-2;j>=0;j--){
-             right[j]=max(right[j+1]-1,dp[i-1][j]);
+            // Calculate right max
+            rightMax[n - 1] = dp[n - 1] - (n - 1);
+            for (int j = n - 2; j >= 0; --j) {
+                rightMax[j] = max(rightMax[j + 1], dp[j] - j);
             }
 
-            for(int j=0;j<m;j++){
-                dp[i][j]=points[i][j]+max(left[j],right[j]);
+            // Calculate new DP for the current row
+            for (int j = 0; j < n; ++j) {
+                newDp[j] = max(leftMax[j] - j, rightMax[j] + j) + points[i][j];
             }
-            
+
+            dp = newDp;
         }
 
-        long long ans=INT_MIN;
-
-        for(int i=0;i<m;i++){
-            ans=max(ans,dp[n-1][i]);
-        }
-
-        return ans;
+        return *max_element(dp.begin(), dp.end());
     }
 };
