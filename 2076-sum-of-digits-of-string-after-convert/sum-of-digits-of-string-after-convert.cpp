@@ -2,22 +2,25 @@ class Solution {
 public:
     int getLucky(string s, int k) {
         int sum = 0;
-        vector<int> ans;
+
         for (auto it : s) {
             int v = it - 'a' + 1;
-
-            ans.push_back(v);
-        }
-
-        for (auto it : ans) {
-            // cout << it;
-            while (it > 9) {
-                sum += it % 10;
-                it /= 10;
+            while (v) {
+                sum += v % 10;
+                v /= 10;
             }
-
-            sum += it;
+            
         }
+
+        // for (auto it : ans) {
+        //     // cout << it;
+        //     while (it > 9) {
+        //         sum += it % 10;
+        //         it /= 10;
+        //     }
+
+        //     sum += it;
+        // }
 
         // cout << sum;
         // int new_sum =0;
