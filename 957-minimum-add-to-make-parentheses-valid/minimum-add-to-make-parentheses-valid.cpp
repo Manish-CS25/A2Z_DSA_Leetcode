@@ -4,18 +4,18 @@ public:
         if (s.size() == 1)
             return 1;
         stack<char> st;
-        st.push(s[0]);
+        // st.push(s[0]);
 
-        for (int i = 1; i < s.size(); i++) {
+        for (auto it : s) {
             if (!st.empty()) {
 
-                if (st.top() == '(' && s[i] == ')')
+                if (st.top() == '(' && it == ')')
                     st.pop();
                 else
-                    st.push(s[i]);
+                    st.push(it);
 
             } else
-                st.push(s[i]);
+                st.push(it);
         }
 
         return st.size();
