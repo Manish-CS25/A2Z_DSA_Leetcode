@@ -46,9 +46,14 @@ public:
                     mxDist = max(mxDist, x * x + y * y);
                 }
             } else if (commands[i] == -1) {
-                d = (d + 1) % 4;  // Turn right
+                if(d==3)
+                d=0;
+                else d+=1;
             } else if (commands[i] == -2) {
-                d = (d + 3) % 4;  // Turn left (equivalent to -1 mod 4)
+                if(d==0)
+                d=3;
+                else d-=1;
+                  // Turn left (equivalent to -1 mod 4)
             }
         }
         return mxDist;
