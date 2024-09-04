@@ -8,8 +8,8 @@ public:
 
         for (int i = 1; i < s.size(); i++) {
             if (!st.empty()) {
-                char ch = st.top();
-                if (ch == '(' && s[i] == ')')
+
+                if (st.top() == '(' && s[i] == ')')
                     st.pop();
                 else
                     st.push(s[i]);
