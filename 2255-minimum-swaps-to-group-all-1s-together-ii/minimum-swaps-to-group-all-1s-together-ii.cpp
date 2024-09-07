@@ -1,14 +1,36 @@
 class Solution {
 public:
     int minSwaps(vector<int>& nums) {
-        int k = accumulate(nums.begin(), nums.end(), 0);
         int n = nums.size();
-        int cnt = accumulate(nums.begin(), nums.begin() + k, 0);
-        int mx = cnt;
-        for (int i = k; i < n + k; ++i) {
-            cnt += nums[i % n] - nums[(i - k + n) % n];
-            mx = max(mx, cnt);
+        if(n==1)
+            return 0;
+        int ones = count(nums.begin()  , nums.end() , 1);
+        if(ones==0 || ones == n)
+            return 0;
+        int window_size = ones;
+        int zero=0;
+        
+        for(int i=0; i< window_size;i++){
+            if(nums[i]==0)
+                zero++;
+            
         }
-        return k - mx;
+        
+        int minZero = zero;
+        int start = 0;
+        int end = window_size-1;
+        while(start<n){
+            if(nums[start]==0)
+            zero--;
+            start++;
+            end++;
+            if(nums[end%n]==0)
+            zero++;
+
+            minZero = min(minZero , zero);
+        }
+
+        
+        return minZero;
     }
 };
