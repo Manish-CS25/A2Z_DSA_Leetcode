@@ -27,10 +27,10 @@ public:
                 ans += '-'; // Add a dash before each new group
             }
             for (int i = 0; i < k; ++i) {
-                if (!q.empty()) {
+                // if (!q.empty()) {
                     ans += q.front();
                     q.pop();
-                }
+                // }
             }
         }
 
