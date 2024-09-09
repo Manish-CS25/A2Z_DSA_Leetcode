@@ -9,10 +9,8 @@ public:
                 l++;
                 ans = l;
             }
-            // l++;
-            else {
-                l = 0;
-            }
+            else
+            l = 0;
         }
         return ans;
     }
