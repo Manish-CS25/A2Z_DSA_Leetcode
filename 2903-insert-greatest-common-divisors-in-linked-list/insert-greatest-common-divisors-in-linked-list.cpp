@@ -10,7 +10,12 @@
  */
 class Solution {
 private:
-    // int gcd(int a, int b) {}
+int GCD(int a, int b) {
+    if (b == 0)
+        return a;
+    return GCD(b, a % b);
+}
+
 
 public:
     ListNode* insertGreatestCommonDivisors(ListNode* head) {
@@ -28,7 +33,7 @@ public:
             return head;
         for (int i = 0; i < n - 1; i++) {
 
-            int g = __gcd(arr[i], arr[i + 1]);
+            int g = GCD(arr[i], arr[i + 1]);
             gcd.push_back(g);
         }
 
