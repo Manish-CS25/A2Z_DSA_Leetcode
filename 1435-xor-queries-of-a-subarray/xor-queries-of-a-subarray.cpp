@@ -12,7 +12,7 @@ public:
             int s = it[0];
             int e = it[1];
              
-            ans.push_back(arr[e] ^ ( (s-1>=0)? arr[s-1]:0));
+            ans.push_back(arr[e] ^ ((s-1>=0)? arr[s-1]:0));
         }
 
         return ans;
