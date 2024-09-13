@@ -8,12 +8,9 @@ public:
 
         vector<int> ans;
 
-        for (auto it : queries) {
-            int s = it[0];
-            int e = it[1];
-             
-            ans.push_back(arr[e] ^ ((s-1>=0)? arr[s-1]:0));
-        }
+        for (auto &it : queries)      
+            ans.push_back(arr[it[1]] ^ ((it[0]-1>=0)? arr[it[0]-1]:0));
+        
 
         return ans;
     }
