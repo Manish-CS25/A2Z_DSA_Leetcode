@@ -2,9 +2,9 @@ class Solution {
 public:
     int minBitFlips(int start, int goal) {
         int  a = start ^ goal;
-        int cnt = 0;
+        long long cnt = 0;
         while (a>0) {
-            if (a % 2) 
+            if (a % 2 == 1) 
                 cnt++;
             
 
