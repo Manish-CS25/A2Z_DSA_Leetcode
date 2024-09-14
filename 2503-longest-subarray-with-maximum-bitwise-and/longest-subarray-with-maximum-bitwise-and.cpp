@@ -7,8 +7,8 @@ public:
 
         for (int i = 0; i < n; i++) {
             if (nums[i] == maxi) {
-                cnt++;
-                maxi_cnt = max(maxi_cnt, cnt);
+                
+                maxi_cnt = max(maxi_cnt, ++cnt);
             } else {
                 cnt = 0;
             }
