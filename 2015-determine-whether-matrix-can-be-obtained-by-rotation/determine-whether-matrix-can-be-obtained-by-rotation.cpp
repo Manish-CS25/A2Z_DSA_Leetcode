@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool findRotation(vector<vector<int>>& mat, vector<vector<int>>& target) {
-        int r = 3; // No. of rotation , counting first one also
+        int r = 4; // No. of rotation , counting first one also
         int n = mat.size();
         while (r--) {
             if (mat == target)
@@ -16,8 +16,7 @@ public:
             for (int i = 0; i < n; i++) {
                 reverse(mat[i].begin(), mat[i].end());
             }
-            if(mat==target)
-            return true;
+
         }
         return false;
     }
