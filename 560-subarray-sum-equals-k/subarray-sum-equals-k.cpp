@@ -22,7 +22,7 @@ public:
     int subarraySum(vector<int>& nums, int k) {
         int cnt = 0;
         long long sum = 0;
-        map<long long, int> prefix; // To store the frequency of prefix sums
+        unordered_map<long long, int> prefix; // To store the frequency of prefix sums
         
         prefix[0] = 1; // Initialize with prefix sum 0 occurring once (important for subarrays starting from index 0)
 
