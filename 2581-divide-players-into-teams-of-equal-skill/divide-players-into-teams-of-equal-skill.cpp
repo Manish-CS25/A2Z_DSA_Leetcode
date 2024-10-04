@@ -24,7 +24,7 @@ public:
                 if (mp[skill[i]] > 0 && mp[rem] == 0)
                     return -1;
 
-                if (mp[rem] > 0 && mp[skill[i]] > 0) {
+                if (mp[skill[i]] > 0) {
 
                     sum += skill[i] * rem;
                     mp[rem]--;
