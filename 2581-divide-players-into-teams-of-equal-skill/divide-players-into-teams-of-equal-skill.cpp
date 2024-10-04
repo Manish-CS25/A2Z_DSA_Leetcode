@@ -51,9 +51,9 @@ public:
         int n = skill.size();
 
 
-        for (int i = 0; i < n; i++) {
+        for (auto &it:skill) {
 
-            sum += skill[i];
+            sum += it;
         }
 
         int teams = n / 2;
