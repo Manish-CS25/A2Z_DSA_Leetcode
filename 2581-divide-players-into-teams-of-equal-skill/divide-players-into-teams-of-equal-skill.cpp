@@ -35,6 +35,6 @@ public:
                 return -1;
         }
 
-        return sum > 0 ? sum : -1;
+        return sum ;
     }
 };
