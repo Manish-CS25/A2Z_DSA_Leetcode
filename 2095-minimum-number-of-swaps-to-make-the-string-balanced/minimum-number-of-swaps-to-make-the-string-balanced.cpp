@@ -4,7 +4,7 @@ public:
 
         int inbalance_cnt = 0;
 
-        int ob = 0, cb = 0;
+        int cb = 0;
 
         for (int i = 0; i < s.size(); i++) {
             if (s[i] == '[')
