@@ -38,6 +38,7 @@ public:
                 maxi = max(maxi, i - st.top());
                 st.pop();
             }
+            if(st.empty()) break;
         }
 
         return maxi;
