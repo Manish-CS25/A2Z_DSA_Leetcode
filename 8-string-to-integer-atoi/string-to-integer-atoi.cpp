@@ -39,6 +39,6 @@ public:
         ans = sign ? ans : -ans;
 
         // Return the result as an int
-        return static_cast<int>(ans);
+        return (int)ans;
     }
 };
