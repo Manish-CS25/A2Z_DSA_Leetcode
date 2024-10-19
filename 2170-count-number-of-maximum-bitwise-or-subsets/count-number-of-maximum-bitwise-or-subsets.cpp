@@ -65,7 +65,7 @@ public:
         int ans = 0;
         int n = nums.size();
         long long max_or = 0;
-        for (auto it : nums) {
+        for (int& it : nums) {
             max_or = max_or | it;
         }
 
