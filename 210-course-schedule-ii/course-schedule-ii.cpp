@@ -3,7 +3,7 @@ public:
     vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
 
         vector<vector<int>> adj(numCourses);
-        for (auto it : prerequisites) {
+        for (auto &it : prerequisites) {
 
             adj[it[1]].push_back(it[0]);
         }
@@ -27,7 +27,7 @@ public:
             q.pop();
             topo.push_back(node);
 
-            for (auto it : adj[node]) {
+            for (auto &it : adj[node]) {
                 indegree[it]--;
                 if (indegree[it] == 0)
                     q.push(it);
