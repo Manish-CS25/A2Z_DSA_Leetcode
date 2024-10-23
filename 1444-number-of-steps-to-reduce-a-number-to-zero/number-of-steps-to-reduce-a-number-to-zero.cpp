@@ -14,7 +14,7 @@ public:
             else {
                 num -= 1;
             }
-            cout << num << " ";
+       
         }
 
         return s;
