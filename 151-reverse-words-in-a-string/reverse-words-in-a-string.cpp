@@ -1,7 +1,7 @@
 class Solution {
 public:
     string reverseWords(string s) {
-        string ans = "";
+
         string result;
         int n = s.size();
         stack<string> st;
@@ -23,14 +23,16 @@ public:
             }
         }
 
+        s = "";
+
         while (!st.empty()) {
-            ans += st.top();
+            s += st.top();
             st.pop();
             if (!st.empty()) {
-                ans += " "; // Add space between words
+                s += " "; // Add space between words
             }
         }
 
-        return ans;
+        return s;
     }
 };
