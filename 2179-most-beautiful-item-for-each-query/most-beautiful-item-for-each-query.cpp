@@ -1,26 +1,26 @@
 class Solution {
 public:
-    int BS(vector<vector<int>>& items , int q , vector<int> &Beauty){
-        int l = 0 ; 
-        int r = items.size()-1;
+    int BS(vector<vector<int>>& items, int q, vector<int>& Beauty) {
+        int l = 0;
+        int r = items.size() - 1;
 
-        int val=0;
+        int val = 0;
 
-        while(l<=r){
-            int mid = (l+r)/2;
-            if(q>=items[mid][0]){
+        while (l <= r) {
+            int mid = (l + r) / 2;
+            if (q >= items[mid][0]) {
                 val = Beauty[mid];
-                l= mid+1;
-            }
-            else r = mid-1;
+                l = mid + 1;
+            } else
+                r = mid - 1;
         }
 
         return val;
     }
-    
+
     vector<int> maximumBeauty(vector<vector<int>>& items,
                               vector<int>& queries) {
-        // int n = queries.size();
+
         int m = items.size();
         vector<int> ans, mxBeauty(m);
 
