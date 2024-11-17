@@ -9,7 +9,7 @@ public:
         vector<int> pre(n);
         int sum = 0;
         int i = 0;
-        for (auto it : nums) {
+        for (auto& it : nums) {
             sum += it;
             pre[i++] = sum;
         }
