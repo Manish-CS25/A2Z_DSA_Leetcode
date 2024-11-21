@@ -35,7 +35,7 @@ public:
         }
 
         int cnt = 0;
-        for (auto g : guards) {
+        for (auto &g : guards) {
 
             markGuarded(g[0], g[1], grid);
         }
