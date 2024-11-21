@@ -4,7 +4,7 @@ public:
         int n = prices.size();
         int mxProfit = 0;
         int minPrice = INT_MAX;
-        for (int p : prices) {
+        for (int &p : prices) {
 
             if (p < minPrice) {
                 minPrice = p;
