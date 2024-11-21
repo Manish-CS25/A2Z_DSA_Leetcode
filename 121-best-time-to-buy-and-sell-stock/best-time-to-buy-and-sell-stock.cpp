@@ -2,20 +2,17 @@ class Solution {
 public:
     int maxProfit(vector<int>& prices) {
         int n = prices.size();
-        if (n <= 1) return 0; 
-        
-        int minPrice = INT_MAX; 
-        int maxProfit = 0; 
-        
-        for (int price : prices) {
-            // Update minPrice if the current price is lower
-            if (price < minPrice) {
-                minPrice = price;
+        int mxProfit = 0;
+        int minPrice = INT_MAX;
+        for (int p : prices) {
+
+            if (p < minPrice) {
+                minPrice = p;
             }
-            // Calculate potential profit
-            maxProfit = max(maxProfit, price - minPrice);
+
+            int cost = p - minPrice;
+            mxProfit = max(mxProfit, cost);
         }
-        
-        return maxProfit; // Return the maximum profit found
+        return mxProfit;
     }
 };
