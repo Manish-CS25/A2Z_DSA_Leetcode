@@ -27,10 +27,10 @@ public:
                        vector<vector<int>>& walls) {
         vector<vector<int>> grid(m, vector<int>(n, 0));
 
-        for (auto g : guards) {
+        for (auto& g : guards) {
             grid[g[0]][g[1]] = 1;
         }
-        for (auto w : walls) {
+        for (auto& w : walls) {
             grid[w[0]][w[1]] = 2;
         }
 
