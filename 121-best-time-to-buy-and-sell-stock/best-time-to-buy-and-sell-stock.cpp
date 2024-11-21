@@ -10,8 +10,8 @@ public:
                 minPrice = p;
             }
 
-            int cost = p - minPrice;
-            mxProfit = max(mxProfit, cost);
+
+            mxProfit = max(mxProfit, p - minPrice);
         }
         return mxProfit;
     }
