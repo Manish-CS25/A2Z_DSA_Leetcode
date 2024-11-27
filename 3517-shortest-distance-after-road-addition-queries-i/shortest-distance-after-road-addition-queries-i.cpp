@@ -16,7 +16,7 @@ public:
 
             pq.pop();
 
-            for (auto adjNode : adj[node]) {
+            for (auto &adjNode : adj[node]) {
                 if (dis + 1 < dist[adjNode]) {
                     dist[adjNode] = dis + 1;
                     pq.push({dis+1, adjNode});
