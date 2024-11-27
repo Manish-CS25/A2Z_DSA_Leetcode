@@ -30,12 +30,12 @@ public:
     vector<int> shortestDistanceAfterQueries(int n,
                                              vector<vector<int>>& queries) {
         vector<vector<int>> adj(n);
-        adj[0].push_back(1);
+        // adj[0].push_back(1);
         // adj[n - 1].push_back(n - 2);
 
         vector<int> Result(queries.size());
 
-        for (int i = 1; i < n - 1; i++) {
+        for (int i = 0; i < n - 1; i++) {
             // adj[i].push_back(i - 1);
             adj[i].push_back(i + 1);
         }
