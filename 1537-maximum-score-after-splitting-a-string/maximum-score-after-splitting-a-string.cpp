@@ -6,7 +6,7 @@ public:
         int n = s.size();
         vector<pair<int, int>> p(n);
         int i=0;
-        for(auto it:s){ 
+        for(auto &it:s){ 
             if(it=='0') zeros++;
             if(it=='1') ones++;
 
