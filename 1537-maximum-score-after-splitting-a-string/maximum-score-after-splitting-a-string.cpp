@@ -14,7 +14,7 @@ public:
             // cout<<ones<<zeros;
         }
         int ans = 0;
-        for(int i=0; i<s.size()-1;i++){
+        for(int i=0; i<n-1;i++){
            
            ans = max(p[i].first + ones-p[i].second , ans);
         }
