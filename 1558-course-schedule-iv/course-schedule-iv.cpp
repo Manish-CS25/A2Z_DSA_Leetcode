@@ -3,7 +3,7 @@ public:
     bool dfs(int s , int t , vector<vector<int>> &adj, vector<int> &vis ){
         if(s==t) return true;
         vis[s]=1;
-        for(auto it:adj[s]){
+        for(auto &it:adj[s]){
             if(vis[it]!=1 && dfs(it , t , adj , vis)) return true;
             
         }
@@ -22,8 +22,7 @@ public:
             int s = queries[i][0];
             int t = queries[i][1];
             vector<int> vis(numCourses , 0);
-            stack<int> st;
-            st.push(s);
+
             if(dfs(s , t , adj , vis)){
                 ans.push_back(1);
             }
