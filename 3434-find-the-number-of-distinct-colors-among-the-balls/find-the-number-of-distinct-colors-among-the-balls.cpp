@@ -1,27 +1,35 @@
 class Solution {
 public:
     vector<int> queryResults(int limit, vector<vector<int>>& queries) {
-        unordered_map<int, int> colBall;
-        unordered_map<int , int> ballCol;
-        vector<int> ans;
-        for(auto i : queries)
-        {
-            int col = i[1]; int ball = i[0];
-            // we will get a color and a ball , we will check if that ball already has a color or not,
-            // if it doesnt have a color , we will increase count for a color thats it
-            if(ballCol.find(ball)==ballCol.end())
-                {colBall[col]++;}
-            else // otherwise we would getthe previous color and decrease it
-            {
-                int prevcol = ballCol[ball];
-                colBall[prevcol]--;
-                if(colBall[prevcol]==0){
-                    colBall.erase(prevcol);
+        int n = queries.size();
+        vector<int> ans(n);
+        set<int> sz;
+        unordered_map<int, int> mp;
+        unordered_map<int, int> freq; // Tracks occurrences of column values
+
+        for (int i = 0; i < n; i++) {
+            int index = queries[i][0], col = queries[i][1];
+
+            if (mp.find(index) != mp.end()) {
+                int prev_col = mp[index];
+                
+                // Reduce frequency of prev_col
+                freq[prev_col]--;
+
+                // If prev_col is no longer in any key, remove it from sz
+                if (freq[prev_col] == 0) {
+                    sz.erase(prev_col);
+                    freq.erase(prev_col); // Cleanup
                 }
-                colBall[col]++;
             }
-            ballCol[ball]=col;
-            ans.push_back(colBall.size());
+
+            // Insert new column value and track frequency
+            sz.insert(col);
+            freq[col]++;
+
+            mp[index] = col;
+
+            ans[i] = sz.size();
         }
         return ans;
     }
