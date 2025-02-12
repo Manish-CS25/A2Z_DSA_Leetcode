@@ -1,10 +1,10 @@
 class Solution {
 public:
-    int sum_of_digits(int num){
-        int sum =0;
-        while(num){
-            sum+= num%10;
-            num/=10;
+    int sum_of_digits(int num) {
+        int sum = 0;
+        while (num) {
+            sum += num % 10;
+            num /= 10;
         }
         return sum;
     }
@@ -19,12 +19,18 @@ public:
             mp[sd].push_back(nums[i]);
         }
 
-        for(auto &it:mp){
-              vector<int> sn = it.second;
-              if(sn.size()<2) continue;
-              sort(sn.begin() , sn.end());
-              int sz = sn.size();
-              ans = max(sn[sz-1]+sn[sz-2] , ans);
+        for (auto& it : mp) {
+            vector<int> sn = it.second;
+            if (sn.size() < 2)
+                continue;
+            priority_queue<int> pq;
+            for (auto el : sn)
+                pq.push(el);
+            int sum = 0;
+            sum += pq.top();
+            pq.pop();
+            sum += pq.top();
+            ans = max(sum, ans);
         }
         return ans;
     }
